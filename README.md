@@ -65,3 +65,21 @@ If you want to learn more about building native executables, please consult <htt
 Easily start your REST Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+Testar a fila via CLI:
+
+aws --version
+aws sqs send-message --queue-url "url" --message-body "teste msg" 
+aws sqs receive-message --queue-url "url" --max-number-of-messages 5 --visibility-timeout 30 --wait-time-seconds 10
+
+
+{
+    "Effect": "Allow",
+    "Action": [
+        "sqs:SendMessage",
+        "sqs:ReceiveMessage",
+        "sqs:DeleteMessage",
+        "sqs:GetQueueAttributes"
+    ],
+    "Resource": "arn:aws:sqs:us-east-2:503561411365:sqs-quarkus-pratice"
+}
